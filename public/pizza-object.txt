@@ -1,0 +1,18 @@
+
+1: {
+    'name': 'Margherita',
+    'description': 'A delicious tomato based pizza topped with mozzarella',
+    'options': [{ 'size': 9, 'price': 6.95}, {'size': 12, 'price': 10.95}]
+  },
+2: {
+    'name': 'Pepperoni',
+    'description': 'A delicious tomato based pizza topped with mozzarella and pepperoni',
+    'options': [{'size': 9, 'price': 7.95 }, {'size': 12, 'price': 12.95}]
+  },
+3: {
+    'name': 'Ham and Pineapple',
+    'description': 'A delicious tomato based pizza topped with mozzarella, ham and pineapple',
+    'options': [{'size': 9, 'price': 7.95 }, { 'size': 12,'price': 12.95 }]
+  }
+https://www.djamware.com/post/5b6a681f80aca76a2cbd98fb/mongodb-express-vuejs-2-nodejs-mevn-and-socketio-chat-app
+https://www.djamware.com/post/5a1b779f80aca75eadc12d6e/mongo-express-vue-nodejs-mevn-stack-crud-web-application
