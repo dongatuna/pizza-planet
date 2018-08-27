@@ -4,13 +4,26 @@
             <div class="background">
                 <h1>Welcome to Pizza Planet!</h1>
                 <h2>Feeling hungry?</h2>
-                <button class="btn btn-success">Let's order!</button>
+                <button class="btn btn-success" v-on:click="goToMenu">Let's order!</button>
                 
             </div>
         </div>
 
     </div>
 </template>
+
+<script>
+export default {
+    methods:{
+        goToMenu(){
+            //use router in the home component to go to the menu component
+            //the router push methods adds to the browser history
+            this.$router.push({name: 'menuLink'});
+        }
+    }
+}
+</script>
+
 
 <style>
     #home{

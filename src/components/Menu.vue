@@ -50,10 +50,10 @@
                     </tbody>
                 </table>
                 <p>Order total: </p>
-                <button class="btn btn-success btn-block">Place Order</button>
+                <button class="btn btn-success btn-block" v-on:click="addNewOrder">Place Order</button>
             </div>
             <div v-else>
-                <p>{{basketText}}</p>
+                <p>{{basketText}}</p>{{this.$store.state.orders}}
             </div>
 
         </div>
@@ -65,34 +65,40 @@ export default {
     data(){
        return {
            basket:[],
-           basketText:"Your basket is empty",
-           getMenuItems:{
-                1: {
-                    'name': 'Margherita',
-                    'description': 'A delicious tomato based pizza topped with mozzarella',
-                    'options': [{ 'size': 9, 'price': 6.95}, {'size': 12, 'price': 10.95}]
-                },
-                2: {
-                    'name': 'Pepperoni',
-                    'description': 'A delicious tomato based pizza topped with mozzarella and pepperoni',
-                    'options': [{'size': 9, 'price': 7.95 }, {'size': 12, 'price': 12.95}]
-                },
-                3: {
-                    'name': 'Ham and Pineapple',
-                    'description': 'A delicious tomato based pizza topped with mozzarella, ham and pineapple',
-                    'options': [{'size': 9, 'price': 7.95 }, { 'size': 12,'price': 12.95 }]
-                }
-           }            
+           basketText:"Your basket is empty"                 
        }
+    },
+
+    //how to get data from the store
+    computed:{
+        getMenuItems(){
+            //---getting data using the state -- you bring entire data to the component
+            //return this.$store.state.menuItems
+
+            //---getting data using getter --you bring filtered data to the component
+            return this.$store.getters.getMenuItems
+        }
     },
     methods:{
         addToBasket(item, option){
+            //check if the item is already in the basket
+            //console.log(this.basket.length);
+            const exists = this.basket.includes(item)
+            console.log('this is the length of the basket', this.basket.length);
+            console.log('this is what is in the basket', this.basket)
+
+            console.log('does it exits?', exists)
+            //if it is increment quantity
+
+            //if not, push the entire item
             this.basket.push({
                 name: item.name,
                 price: option.price,
                 size: option.size,
                 quantity:1
             })
+
+           
         },
         removeFromBasket(item){
             this.basket.splice(this.basket.indexOf(item), 1);
@@ -105,6 +111,11 @@ export default {
         },
         increaseQuantity(item){
             item.quantity++;
+        },
+        addNewOrder(){
+            this.$store.commit('addOrder', this.basket)
+            this.basket = []
+            this.basketText = "The order has been placed"
         }
     }
 }
