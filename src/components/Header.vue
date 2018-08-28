@@ -1,6 +1,6 @@
 <template>
     <header class="row">
-        <nav class="navbar navbar-toggleable-md navbar-light">
+        <nav class="navbar  navbar-expand-md navbar-light">
             <a class="navbar-brand" href="/">PIZZA PLANET</a>
             <ul class="navbar-nav">
                 <router-link v-bind:to="{name: 'homeLink'}" tag="li"><a class="nav-link">home</a></router-link>

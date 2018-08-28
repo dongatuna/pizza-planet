@@ -1,6 +1,6 @@
 <template>
     <footer class="row">
-        <nav class="navbar navbar-toggleable-md navbar-light">
+        <nav class="navbar  navbar-expand-md navbar-light">
             
             <ul class="navbar-nav">
                 <router-link :to="{name: 'homeLink'}" tag="li"><a class="nav-link">home</a></router-link>

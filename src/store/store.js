@@ -35,8 +35,10 @@ export const store = new Vuex.Store({
         addOrder:(state, orders)=>state.orders.push(orders),
         userStatus: (state, user)=>{
             if(user){
-                state.currentUser = user
-            }else state.currentUser = null
+                state.currentUser = user.email
+            }else{
+                state.currentUser = null
+            } 
         }
     },
     actions:{

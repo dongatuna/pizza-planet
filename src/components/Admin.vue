@@ -65,6 +65,7 @@
 
 import NewPizza from "./NewPizza.vue";
 import Login from "./Login.vue";
+import {mapGetters} from "vuex";
 export default {
     components:{
         "pp-newpizza":NewPizza,
@@ -72,12 +73,16 @@ export default {
     },
 
      computed:{
-        getMenuItems(){
-            return this.$store.state.menuItems
-        },
-        numberOfOrders(){
-            return this.$store.getters.numberOfOrders
-        }
+         ...mapGetters ([
+             'getMenuItems',
+             'numberOfItems'
+         ])
+        // getMenuItems(){
+        //     return this.$store.state.menuItems
+        // },
+        // numberOfOrders(){
+        //     return this.$store.getters.numberOfOrders
+        // }
     },
     beforeRouteLeave: (to, from, next)=>{
         if(confirm("Have you remembered to log out")===true){

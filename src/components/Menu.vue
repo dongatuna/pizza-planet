@@ -61,6 +61,8 @@
 </template>
 
 <script>
+
+import {mapGetters} from 'vuex'
 export default {
     data(){
        return {
@@ -71,13 +73,17 @@ export default {
 
     //how to get data from the store
     computed:{
-        getMenuItems(){
-            //---getting data using the state -- you bring entire data to the component
-            //return this.$store.state.menuItems
 
-            //---getting data using getter --you bring filtered data to the component
-            return this.$store.getters.getMenuItems
-        }
+        ...mapGetters([
+            "getMenuItems"
+        ])
+        // getMenuItems(){
+        //     //---getting data using the state -- you bring entire data to the component
+        //     //return this.$store.state.menuItems
+
+        //     //---getting data using getter --you bring filtered data to the component
+        //     return this.$store.getters.getMenuItems
+        // }
     },
     methods:{
         addToBasket(item, option){
