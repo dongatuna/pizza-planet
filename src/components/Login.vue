@@ -2,7 +2,8 @@
      <div class="row">
          <div>         
             <div>
-                <p>Logged in as: <br>{{currentUser}}</p>
+                <p v-if="!currentUser">Please login to continue</p>
+                <p v-else>Logged in as: <br>{{currentUser}}</p>
             </div>
             <form>
                 <div class="form-group">
@@ -25,7 +26,7 @@
 <script>
 
 import Firebase from 'firebase'
-import store from '../store/store.js'
+import {store} from '../store/store.js'
 
 Firebase.auth().onAuthStateChanged(function(user){
     if(user){
@@ -69,3 +70,10 @@ export default {
     },
 }
 </script>
+
+<style>
+    form{
+        margin: 20px 0;
+    }
+</style>
+

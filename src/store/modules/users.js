@@ -17,7 +17,6 @@ const mutations = {
 }
 
 const actions = {
-    //turn the action into a function
     setUser({commit}, user){
         //commiting the userStatus mutation above
         commit('userStatus', user)    
